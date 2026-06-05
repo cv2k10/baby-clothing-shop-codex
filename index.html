@@ -228,30 +228,21 @@
       margin-inline: auto;
     }
 
-    .shop-grid {
+    .home-stack {
       display: grid;
-      grid-template-columns: minmax(0, 1.56fr) minmax(360px, .98fr);
-      gap: clamp(18px, 2vw, 26px);
-      padding: 24px 0 88px;
-      align-items: start;
-    }
-
-    .left-column,
-    .sidebar {
-      min-width: 0;
+      gap: 0;
+      padding: 42px 0 48px;
     }
 
     .hero {
       position: relative;
-      min-height: clamp(420px, 39vw, 570px);
+      min-height: clamp(350px, 29vw, 430px);
       display: flex;
       align-items: center;
       overflow: hidden;
-      border-radius: var(--radius-soft);
       background:
-        linear-gradient(90deg, rgba(249, 244, 237, .96) 0%, rgba(249, 244, 237, .84) 31%, rgba(249, 244, 237, .08) 62%),
-        url("assets/hero-baby-clean.png") left center / cover no-repeat;
-      box-shadow: var(--shadow);
+        linear-gradient(90deg, rgba(249, 244, 237, .96) 0%, rgba(249, 244, 237, .86) 31%, rgba(249, 244, 237, .14) 61%),
+        url("assets/hero-baby-clean.png") center top / cover no-repeat;
       isolation: isolate;
     }
 
@@ -266,9 +257,9 @@
     }
 
     .hero-copy {
-      box-sizing: content-box;
-      width: min(500px, 58%);
-      padding: clamp(34px, 5vw, 64px);
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+      padding-left: clamp(72px, 8vw, 126px);
       transform: translateY(2px);
     }
 
@@ -344,11 +335,11 @@
     }
 
     .slider-arrow.prev {
-      left: 18px;
+      left: clamp(18px, 4.8vw, 78px);
     }
 
     .slider-arrow.next {
-      right: 18px;
+      right: clamp(18px, 4.8vw, 78px);
     }
 
     .slider-arrow .icon {
@@ -386,7 +377,7 @@
     }
 
     .section {
-      margin-top: 62px;
+      margin-top: 42px;
     }
 
     .section-head {
@@ -458,7 +449,8 @@
 
     .product-media {
       position: relative;
-      aspect-ratio: 1 / 1.33;
+      display: block;
+      aspect-ratio: 1.46 / 1;
       overflow: hidden;
       border-radius: var(--radius);
       background: #f6f1ea;
@@ -507,14 +499,16 @@
 
     .promo-grid {
       display: grid;
-      grid-template-columns: .96fr 1fr;
-      gap: clamp(18px, 2vw, 24px);
-      margin-top: 70px;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(16px, 1.7vw, 20px);
+      margin-top: 50px;
     }
 
     .promo-card {
       position: relative;
-      min-height: 212px;
+      display: block;
+      min-height: 0;
+      aspect-ratio: 410 / 210;
       overflow: hidden;
       border-radius: var(--radius);
       background: var(--surface);
@@ -534,13 +528,17 @@
     }
 
     .promo-card.tall {
-      min-height: clamp(330px, 34vw, 468px);
-      grid-row: span 2;
+      min-height: 0;
+      grid-row: auto;
     }
 
     .promo-stack {
       display: grid;
       gap: clamp(18px, 2vw, 24px);
+    }
+
+    .promo-stack .promo-card {
+      aspect-ratio: 408 / 98;
     }
 
     .visually-hidden {
@@ -574,10 +572,11 @@
 
     .mini-media,
     .flash-media {
+      display: block;
       overflow: hidden;
       border-radius: var(--radius);
       background: #f6f1ea;
-      aspect-ratio: 1 / 1.3;
+      aspect-ratio: 1.92 / 1;
     }
 
     .mini-media img,
@@ -611,16 +610,19 @@
 
     .testimonial,
     .quote-card {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      border-top: 0;
+      border-bottom: 0;
       padding: 40px clamp(18px, 3vw, 58px);
     }
 
     .testimonial {
       display: grid;
-      grid-template-columns: 92px minmax(0, 1fr);
+      grid-template-columns: 88px minmax(0, 1fr);
       gap: 22px;
       align-items: start;
+      min-height: 100%;
+      border-radius: var(--radius);
+      background: rgba(249, 245, 239, .82);
     }
 
     .quote-mark {
@@ -661,7 +663,7 @@
       align-items: end;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 26px;
+      margin-bottom: 22px;
     }
 
     .flash-head h2 {
@@ -690,15 +692,18 @@
 
     .badge {
       position: absolute;
-      top: 12px;
-      left: 12px;
+      top: 8px;
+      left: 0;
       z-index: 1;
       padding: 4px 7px;
+      min-width: 58px;
       border-radius: 2px;
-      background: rgba(255, 248, 229, .96);
+      background: #fff8e5;
+      box-shadow: 0 0 0 5px #fff8e5;
       color: #4c493f;
       font-size: 10px;
       font-weight: 800;
+      text-align: center;
     }
 
     .old-price {
@@ -714,11 +719,13 @@
 
     .collection-banner {
       position: relative;
+      display: block;
       overflow: hidden;
       border-radius: var(--radius);
       background: var(--surface);
       box-shadow: var(--shadow);
       transition: transform .3s var(--ease);
+      margin-top: 48px;
     }
 
     .collection-banner:hover {
@@ -728,7 +735,7 @@
     .collection-banner img {
       width: 100%;
       height: auto;
-      aspect-ratio: 320 / 161;
+      aspect-ratio: 828 / 141;
       object-fit: cover;
     }
 
@@ -759,7 +766,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 26px;
+      margin-bottom: 20px;
     }
 
     .journal-head h2 {
@@ -780,7 +787,7 @@
 
     .journal-card img {
       width: 100%;
-      aspect-ratio: 1 / .88;
+      aspect-ratio: 1.16 / 1;
       object-fit: cover;
       border-radius: var(--radius);
       background: var(--surface);
@@ -829,11 +836,15 @@
       background: rgba(255, 255, 255, .72);
     }
 
+    .top-benefits {
+      border-top: 0;
+    }
+
     .benefit-grid {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 24px;
-      min-height: 132px;
+      min-height: 98px;
       align-items: center;
     }
 
@@ -879,7 +890,7 @@
       grid-template-columns: minmax(0, .9fr) minmax(320px, 1.25fr);
       gap: 40px;
       align-items: center;
-      padding: 56px 0;
+      padding: 40px 0;
     }
 
     .newsletter h2 {
@@ -942,12 +953,12 @@
       display: grid;
       grid-template-columns: 1.38fr .72fr .72fr .72fr 1.15fr;
       gap: clamp(26px, 4vw, 76px);
-      padding: 62px 0 50px;
+      padding: 42px 0 34px;
     }
 
     .footer-about p {
       width: min(270px, 100%);
-      margin: 30px 0 32px;
+      margin: 24px 0 24px;
       color: #5f5c58;
       font-size: 14px;
       line-height: 1.85;
@@ -975,14 +986,14 @@
     }
 
     .footer-column h3 {
-      margin: 0 0 28px;
+      margin: 0 0 22px;
       font-size: 14px;
       font-weight: 800;
     }
 
     .footer-links {
       display: grid;
-      gap: 16px;
+      gap: 12px;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -1018,7 +1029,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 22px;
-      padding: 26px 0 34px;
+      padding: 22px 0 26px;
       border-top: 1px solid var(--line);
       color: #89837b;
       font-size: 13px;
@@ -1080,6 +1091,24 @@
       color: #6d3bff;
     }
 
+    .flash {
+      margin-top: 40px;
+    }
+
+    .content-row {
+      display: grid;
+      grid-template-columns: .92fr 1.18fr;
+      gap: clamp(18px, 2vw, 24px);
+      margin-top: 36px;
+      align-items: stretch;
+    }
+
+    .content-row .journal {
+      padding: 28px 28px 26px;
+      border-radius: var(--radius);
+      background: rgba(249, 245, 239, .82);
+    }
+
     [data-reveal] {
       opacity: 0;
       transform: translateY(28px);
@@ -1120,28 +1149,13 @@
         gap: 20px;
       }
 
-      .shop-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: start;
-      }
-
-      .sidebar > * {
-        min-width: 0;
-      }
-
       .testimonial,
       .quote-card {
         padding-inline: 28px;
       }
 
-      .collection-banner,
-      .quote-card,
-      .journal {
-        grid-column: span 2;
+      .content-row {
+        grid-template-columns: 1fr;
       }
 
       .benefit-grid {
@@ -1215,7 +1229,7 @@
       }
 
       .hero {
-        min-height: 620px;
+        min-height: 540px;
         align-items: flex-start;
         background:
           linear-gradient(180deg, rgba(249, 244, 237, .98) 0%, rgba(249, 244, 237, .82) 36%, rgba(249, 244, 237, .1) 70%),
@@ -1223,8 +1237,8 @@
       }
 
       .hero-copy {
-        width: 100%;
-        padding: 44px 34px;
+        width: min(var(--container), calc(100% - 48px));
+        padding: 44px 0 0;
       }
 
       .hero p {
@@ -1252,16 +1266,6 @@
         min-height: 520px;
       }
 
-      .sidebar {
-        grid-template-columns: 1fr;
-      }
-
-      .collection-banner,
-      .quote-card,
-      .journal {
-        grid-column: auto;
-      }
-
       .testimonial {
         grid-template-columns: 56px minmax(0, 1fr);
       }
@@ -1285,7 +1289,7 @@
         width: min(100% - 24px, var(--container));
       }
 
-      .shop-grid {
+      .home-stack {
         padding-top: 14px;
         padding-bottom: 58px;
       }
@@ -1301,11 +1305,13 @@
       .hero {
         min-height: 560px;
         border-radius: 0;
-        margin-inline: -12px;
+        margin-inline: 0;
       }
 
       .hero-copy {
-        padding: 36px 24px;
+        width: min(100% - 40px, var(--container));
+        padding-left: 0;
+        padding-top: 36px;
       }
 
       .hero h1 {
@@ -1375,7 +1381,7 @@
       }
 
       .promo-card.tall {
-        min-height: 430px;
+        min-height: 0;
       }
 
       .testimonial,
@@ -1394,6 +1400,10 @@
 
       .quote-mark {
         line-height: 1;
+      }
+
+      .content-row .journal {
+        padding: 22px 16px 20px;
       }
 
       .benefit-grid {
@@ -1512,145 +1522,205 @@
     </header>
 
     <main>
-      <div class="container shop-grid">
-        <div class="left-column">
-          <section class="hero" aria-labelledby="hero-title" data-reveal>
-            <button class="slider-arrow prev" type="button" aria-label="Previous hero slide">
-              <svg class="icon"><use href="#icon-chevron-left"></use></svg>
-            </button>
-            <div class="hero-copy">
-              <h1 id="hero-title">Soft, Simple,<strong>Made for Baby.</strong></h1>
-              <p>Gentle fabrics, cozy fits, and timeless styles for every precious moment.</p>
-              <a class="button" href="#featured">
-                <span>Shop Now</span>
-                <svg class="icon"><use href="#icon-arrow-right"></use></svg>
-              </a>
-            </div>
-            <div class="dots" aria-label="Hero slides">
-              <span class="dot is-active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-            <button class="slider-arrow next" type="button" aria-label="Next hero slide">
-              <svg class="icon"><use href="#icon-chevron-right"></use></svg>
-            </button>
-          </section>
-
-          <section class="section" id="featured" data-reveal>
-            <div class="section-head">
-              <h2 class="section-title">Featured Products</h2>
-              <a class="view-link" href="#products">
-                <span>View All Products</span>
-                <svg class="icon"><use href="#icon-arrow-right"></use></svg>
-              </a>
-            </div>
-
-            <div class="product-grid" id="products">
-              <article class="product-card">
-                <a class="product-media" href="#organic-cotton">
-                  <img src="assets/product-bodysuit.png" alt="Organic cotton bodysuit set with matching dotted hat" loading="lazy">
-                </a>
-                <h3 class="product-name">Organic Cotton<br>Bodysuit Set</h3>
-                <p class="product-price">$24.00</p>
-                <div class="swatches" aria-label="Available colors">
-                  <span class="swatch" style="--swatch:#9f8e57"></span>
-                  <span class="swatch" style="--swatch:#dfd6ca"></span>
-                  <span class="swatch" style="--swatch:#c9cdd0"></span>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <a class="product-media" href="#ruffle-romper">
-                  <img src="assets/product-romper.png" alt="Ruffle sleeve romper in warm oatmeal" loading="lazy">
-                </a>
-                <h3 class="product-name">Ruffle Sleeve<br>Romper</h3>
-                <p class="product-price">$28.00</p>
-                <div class="swatches" aria-label="Available colors">
-                  <span class="swatch" style="--swatch:#eee9df"></span>
-                  <span class="swatch" style="--swatch:#c6a47f"></span>
-                  <span class="swatch" style="--swatch:#dbc9b5"></span>
-                  <span class="swatch" style="--swatch:#e8e4df"></span>
-                </div>
-              </article>
-
-              <article class="product-card">
-                <a class="product-media" href="#knitted-cardigan">
-                  <img src="assets/product-cardigan.png" alt="Cream knitted cardigan with buttons" loading="lazy">
-                </a>
-                <h3 class="product-name">Knitted Cardigan</h3>
-                <p class="product-price">$30.00</p>
-              </article>
-
-              <article class="product-card">
-                <a class="product-media" href="#striped-jumpsuit">
-                  <img src="assets/product-jumpsuit.png" alt="Striped baby jumpsuit with bonnet" loading="lazy">
-                </a>
-                <h3 class="product-name">Striped Baby<br>Jumpsuit</h3>
-                <p class="product-price">$26.00</p>
-                <div class="swatches" aria-label="Available colors">
-                  <span class="swatch" style="--swatch:#bec3c5"></span>
-                  <span class="swatch" style="--swatch:#d2b793"></span>
-                  <span class="swatch" style="--swatch:#eee9df"></span>
-                  <span class="swatch" style="--swatch:#d3b071"></span>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="promo-grid" aria-label="LittleCuddle collections" data-reveal>
-            <a class="promo-card tall" href="#cozy-layers">
-              <img src="assets/cozy-layers.png" alt="Cozy Layers collection - For Every Little Moment">
-              <span class="visually-hidden">Cozy Layers. For Every Little Moment. Shop Now.</span>
-            </a>
-            <div class="promo-stack">
-              <a class="promo-card" href="#basics">
-                <img src="assets/everyday-basics.png" alt="Everyday Basics - Soft. Simple. Essential.">
-                <span class="visually-hidden">Everyday Basics. Soft. Simple. Essential. Shop Basics.</span>
-              </a>
-              <a class="promo-card" href="#accessories">
-                <img src="assets/accessories.png" alt="Perfect Finishing Accessories">
-                <span class="visually-hidden">Perfect Finishing Accessories. Shop Accessories.</span>
-              </a>
-            </div>
-          </section>
+      <section class="hero" aria-labelledby="hero-title" data-reveal>
+        <button class="slider-arrow prev" type="button" aria-label="Previous hero slide">
+          <svg class="icon"><use href="#icon-chevron-left"></use></svg>
+        </button>
+        <div class="hero-copy">
+          <h1 id="hero-title">Soft, Simple,<strong>Made for Baby.</strong></h1>
+          <p>Gentle fabrics, cozy fits, and timeless styles for every precious moment.</p>
+          <a class="button" href="#featured">
+            <span>Shop Now</span>
+            <svg class="icon"><use href="#icon-arrow-right"></use></svg>
+          </a>
         </div>
+        <div class="dots" aria-label="Hero slides">
+          <span class="dot is-active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <button class="slider-arrow next" type="button" aria-label="Next hero slide">
+          <svg class="icon"><use href="#icon-chevron-right"></use></svg>
+        </button>
+      </section>
 
-        <aside class="sidebar" aria-label="Shop highlights">
-          <section class="mini-products" id="new-in" data-reveal>
-            <div class="mini-grid">
-              <article class="mini-card">
-                <a class="mini-media" href="#organic-cotton">
-                  <img src="assets/thumb-bodysuit.png" alt="Organic cotton bodysuit set" loading="lazy">
-                </a>
-                <h3>Organic Cotton<br>Bodysuit Set</h3>
-                <p>$24.00</p>
-              </article>
-              <article class="mini-card">
-                <a class="mini-media" href="#ruffle-romper">
-                  <img src="assets/thumb-romper.png" alt="Ruffle sleeve romper" loading="lazy">
-                </a>
-                <h3>Ruffle Sleeve<br>Romper</h3>
-                <p>$28.00</p>
-              </article>
-              <article class="mini-card">
-                <a class="mini-media" href="#knitted-cardigan">
-                  <img src="assets/thumb-cardigan.png" alt="Knitted cardigan" loading="lazy">
-                </a>
-                <h3>Knitted Cardigan</h3>
-                <p>$30.00</p>
-              </article>
-              <article class="mini-card">
-                <a class="mini-media" href="#striped-jumpsuit">
-                  <img src="assets/thumb-jumpsuit.png" alt="Striped baby jumpsuit" loading="lazy">
-                </a>
-                <h3>Striped Baby<br>Jumpsuit</h3>
-                <p>$26.00</p>
-              </article>
+      <section class="benefits top-benefits" aria-label="Store benefits">
+        <div class="container benefit-grid" data-reveal>
+          <div class="benefit-item">
+            <span class="benefit-icon"><svg class="icon"><use href="#icon-truck"></use></svg></span>
+            <div>
+              <h3>Free Shipping</h3>
+              <p>On orders over $75</p>
             </div>
-          </section>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon"><svg class="icon"><use href="#icon-refresh"></use></svg></span>
+            <div>
+              <h3>Easy Returns</h3>
+              <p>30-day return policy</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon"><svg class="icon"><use href="#icon-shield"></use></svg></span>
+            <div>
+              <h3>Secure Payment</h3>
+              <p>100% secure checkout</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon"><svg class="icon"><use href="#icon-headphones"></use></svg></span>
+            <div>
+              <h3>Customer Support</h3>
+              <p>We’re here to help</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon"><svg class="icon"><use href="#icon-gift"></use></svg></span>
+            <div>
+              <h3>Gift Wrapping</h3>
+              <p>Make it extra special</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <section class="testimonial" aria-label="Customer review" data-reveal>
+      <div class="container home-stack" id="new-in">
+        <section class="section" id="featured" data-reveal>
+          <div class="section-head">
+            <h2 class="section-title">Featured Products</h2>
+            <a class="view-link" href="#products">
+              <span>View All Products</span>
+              <svg class="icon"><use href="#icon-arrow-right"></use></svg>
+            </a>
+          </div>
+
+          <div class="product-grid" id="products">
+            <article class="product-card">
+              <a class="product-media" href="#organic-cotton">
+                <img src="assets/product-wide-bodysuit.png" alt="Organic cotton bodysuit set with matching dotted hat" loading="lazy">
+              </a>
+              <h3 class="product-name">Organic Cotton<br>Bodysuit Set</h3>
+              <p class="product-price">$24.00</p>
+              <div class="swatches" aria-label="Available colors">
+                <span class="swatch" style="--swatch:#9f8e57"></span>
+                <span class="swatch" style="--swatch:#dfd6ca"></span>
+                <span class="swatch" style="--swatch:#c9cdd0"></span>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <a class="product-media" href="#ruffle-romper">
+                <img src="assets/product-wide-romper.png" alt="Ruffle sleeve romper in warm oatmeal" loading="lazy">
+              </a>
+              <h3 class="product-name">Ruffle Sleeve<br>Romper</h3>
+              <p class="product-price">$28.00</p>
+              <div class="swatches" aria-label="Available colors">
+                <span class="swatch" style="--swatch:#eee9df"></span>
+                <span class="swatch" style="--swatch:#c6a47f"></span>
+                <span class="swatch" style="--swatch:#dbc9b5"></span>
+                <span class="swatch" style="--swatch:#e8e4df"></span>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <a class="product-media" href="#knitted-cardigan">
+                <img src="assets/product-wide-cardigan.png" alt="Cream knitted cardigan with buttons" loading="lazy">
+              </a>
+              <h3 class="product-name">Knitted Cardigan</h3>
+              <p class="product-price">$30.00</p>
+            </article>
+
+            <article class="product-card">
+              <a class="product-media" href="#striped-jumpsuit">
+                <img src="assets/product-wide-jumpsuit.png" alt="Striped baby jumpsuit with bonnet" loading="lazy">
+              </a>
+              <h3 class="product-name">Striped Baby<br>Jumpsuit</h3>
+              <p class="product-price">$26.00</p>
+              <div class="swatches" aria-label="Available colors">
+                <span class="swatch" style="--swatch:#bec3c5"></span>
+                <span class="swatch" style="--swatch:#d2b793"></span>
+                <span class="swatch" style="--swatch:#eee9df"></span>
+                <span class="swatch" style="--swatch:#d3b071"></span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="promo-grid" aria-label="LittleCuddle collections" data-reveal>
+          <a class="promo-card tall" href="#cozy-layers">
+            <img src="assets/promo-cozy-wide.png" alt="Cozy Layers collection - For Every Little Moment">
+            <span class="visually-hidden">Cozy Layers. For Every Little Moment. Shop Now.</span>
+          </a>
+          <div class="promo-stack">
+            <a class="promo-card" href="#basics">
+              <img src="assets/promo-basics-wide.png" alt="Everyday Basics - Soft. Simple. Essential.">
+              <span class="visually-hidden">Everyday Basics. Soft. Simple. Essential. Shop Basics.</span>
+            </a>
+            <a class="promo-card" href="#accessories">
+              <img src="assets/promo-accessories-wide.png" alt="Perfect Finishing Accessories">
+              <span class="visually-hidden">Perfect Finishing Accessories. Shop Accessories.</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="flash" id="sale" data-reveal>
+          <div class="flash-head">
+            <h2>Flash Sales</h2>
+            <div class="countdown" aria-label="Flash sale countdown">
+              Ends in : <span id="days">02d</span> : <span id="hours">08h</span> : <span id="minutes">06m</span> : <span id="seconds">45s</span> <span aria-hidden="true">›</span>
+            </div>
+          </div>
+
+          <div class="flash-grid">
+            <article class="flash-card">
+              <a class="flash-media" href="#organic-cotton">
+                <span class="badge">-25%</span>
+                <img src="assets/flash-wide-bodysuit.png" alt="Organic cotton bodysuit set on sale" loading="lazy">
+              </a>
+              <h3>Organic Cotton Bodysuit Set</h3>
+              <p>$24.00 <span class="old-price">$32.00</span></p>
+            </article>
+            <article class="flash-card">
+              <a class="flash-media" href="#ruffle-romper">
+                <span class="badge">-20%</span>
+                <img src="assets/flash-wide-romper.png" alt="Ruffle sleeve romper on sale" loading="lazy">
+              </a>
+              <h3>Ruffle Sleeve Romper</h3>
+              <p>$28.00 <span class="old-price">$36.00</span></p>
+            </article>
+            <article class="flash-card">
+              <a class="flash-media" href="#knitted-cardigan">
+                <span class="badge">-25%</span>
+                <img src="assets/flash-wide-cardigan.png" alt="Knitted cardigan on sale" loading="lazy">
+              </a>
+              <h3>Knitted Cardigan</h3>
+              <p>$30.00 <span class="old-price">$40.00</span></p>
+            </article>
+            <article class="flash-card">
+              <a class="flash-media" href="#striped-jumpsuit">
+                <span class="badge">-24%</span>
+                <img src="assets/flash-wide-jumpsuit.png" alt="Striped baby jumpsuit on sale" loading="lazy">
+              </a>
+              <h3>Striped Baby Jumpsuit</h3>
+              <p>$26.00 <span class="old-price">$34.00</span></p>
+            </article>
+          </div>
+          <div class="dots carousel-dots" aria-label="Flash sale pages">
+            <span class="dot is-active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </section>
+
+        <a class="collection-banner" id="collections" href="#everyday-edit" data-reveal>
+          <img src="assets/collection-wide.png" alt="New Collection - The Everyday Edit">
+          <span class="visually-hidden">New Collection. The Everyday Edit. Easy, breathable pieces for every day and every adventure. Shop Collection.</span>
+        </a>
+
+        <div class="content-row" data-reveal>
+          <section class="testimonial" aria-label="Customer review">
             <div class="quote-mark">”</div>
             <div>
               <blockquote>The quality is amazing and so soft on my baby’s skin. Everything washes so well and still looks brand new! LittleCuddle is our favorite. ♥</blockquote>
@@ -1664,74 +1734,7 @@
             </div>
           </section>
 
-          <section class="flash" id="sale" data-reveal>
-            <div class="flash-head">
-              <h2>Flash Sales</h2>
-              <div class="countdown" aria-label="Flash sale countdown">
-                Ends in : <span id="days">02d</span> : <span id="hours">08h</span> : <span id="minutes">06m</span> : <span id="seconds">45s</span> <span aria-hidden="true">›</span>
-              </div>
-            </div>
-
-            <div class="flash-grid">
-              <article class="flash-card">
-                <a class="flash-media" href="#organic-cotton">
-                  <span class="badge">-25%</span>
-                  <img src="assets/product-bodysuit.png" alt="Organic cotton bodysuit set on sale" loading="lazy">
-                </a>
-                <h3>Organic Cotton<br>Bodysuit Set</h3>
-                <p>$24.00 <span class="old-price">$32.00</span></p>
-              </article>
-              <article class="flash-card">
-                <a class="flash-media" href="#ruffle-romper">
-                  <span class="badge">-20%</span>
-                  <img src="assets/product-romper.png" alt="Ruffle sleeve romper on sale" loading="lazy">
-                </a>
-                <h3>Ruffle Sleeve<br>Romper</h3>
-                <p>$28.00 <span class="old-price">$36.00</span></p>
-              </article>
-              <article class="flash-card">
-                <a class="flash-media" href="#knitted-cardigan">
-                  <span class="badge">-25%</span>
-                  <img src="assets/product-cardigan.png" alt="Knitted cardigan on sale" loading="lazy">
-                </a>
-                <h3>Knitted Cardigan</h3>
-                <p>$30.00 <span class="old-price">$40.00</span></p>
-              </article>
-              <article class="flash-card">
-                <a class="flash-media" href="#striped-jumpsuit">
-                  <span class="badge">-24%</span>
-                  <img src="assets/product-jumpsuit.png" alt="Striped baby jumpsuit on sale" loading="lazy">
-                </a>
-                <h3>Striped Baby<br>Jumpsuit</h3>
-                <p>$26.00 <span class="old-price">$34.00</span></p>
-              </article>
-            </div>
-            <div class="dots carousel-dots" aria-label="Flash sale pages">
-              <span class="dot is-active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-          </section>
-
-          <a class="collection-banner" id="collections" href="#everyday-edit" data-reveal>
-            <img src="assets/everyday-edit.png" alt="New Collection - The Everyday Edit">
-            <span class="visually-hidden">New Collection. The Everyday Edit. Easy, breathable pieces for every day and every adventure. Shop Collection.</span>
-          </a>
-
-          <section class="quote-card" aria-label="Quotes of the day" data-reveal>
-            <h2>Quotes Of The Day</h2>
-            <blockquote>“Tiny clothes, big love, little moments that last forever.”</blockquote>
-            <cite>– Unknown</cite>
-            <div class="dots" aria-label="Quote pages">
-              <span class="dot is-active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-          </section>
-
-          <section class="journal" id="journal" data-reveal>
+          <section class="journal" id="journal">
             <div class="journal-head">
               <h2>Our Journal</h2>
               <a class="view-link" href="#articles">
@@ -1778,7 +1781,7 @@
               </article>
             </div>
           </section>
-        </aside>
+        </div>
       </div>
 
       <section class="benefits" aria-label="Store benefits">
@@ -1979,10 +1982,10 @@
 
     document.querySelectorAll(".hero .slider-arrow").forEach((button) => {
       button.addEventListener("click", () => {
-      document.querySelector(".hero").animate([
-          { backgroundPosition: "left center" },
-          { backgroundPosition: "8% center" },
-          { backgroundPosition: "left center" }
+        document.querySelector(".hero").animate([
+          { backgroundPosition: "center top" },
+          { backgroundPosition: "48% top" },
+          { backgroundPosition: "center top" }
         ], {
           duration: 650,
           easing: "cubic-bezier(.2,.8,.2,1)"
