@@ -527,6 +527,63 @@
       object-fit: cover;
     }
 
+    .promo-copy,
+    .collection-copy {
+      position: absolute;
+      z-index: 2;
+      color: var(--ink);
+      pointer-events: none;
+    }
+
+    .promo-copy {
+      left: clamp(26px, 4vw, 56px);
+      top: 50%;
+      width: min(48%, 310px);
+      transform: translateY(-50%);
+    }
+
+    .promo-eyebrow {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--olive-dark);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .promo-copy strong,
+    .collection-copy strong {
+      display: block;
+      font-weight: 800;
+      line-height: 1.12;
+    }
+
+    .promo-copy strong {
+      margin-bottom: 20px;
+      font-size: clamp(24px, 2.4vw, 36px);
+    }
+
+    .promo-stack .promo-copy strong {
+      margin-bottom: 13px;
+      font-size: clamp(16px, 1.45vw, 21px);
+      line-height: 1.25;
+    }
+
+    .promo-body {
+      display: block;
+      max-width: 330px;
+      margin: 12px 0 18px;
+      color: #5f5c58;
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .promo-copy .text-link,
+    .collection-copy .text-link {
+      pointer-events: auto;
+    }
+
     .promo-card.tall {
       min-height: 0;
       grid-row: auto;
@@ -737,6 +794,18 @@
       height: auto;
       aspect-ratio: 828 / 141;
       object-fit: cover;
+      object-position: left center;
+    }
+
+    .collection-copy {
+      top: 50%;
+      right: clamp(44px, 9vw, 176px);
+      width: min(40%, 410px);
+      transform: translateY(-50%);
+    }
+
+    .collection-copy strong {
+      font-size: clamp(28px, 3vw, 42px);
     }
 
     .quote-card {
@@ -1266,6 +1335,19 @@
         min-height: 520px;
       }
 
+      .promo-copy {
+        width: min(54%, 300px);
+      }
+
+      .collection-banner img {
+        aspect-ratio: 2.6 / 1;
+      }
+
+      .collection-copy {
+        right: 34px;
+        width: min(46%, 340px);
+      }
+
       .testimonial {
         grid-template-columns: 56px minmax(0, 1fr);
       }
@@ -1382,6 +1464,44 @@
 
       .promo-card.tall {
         min-height: 0;
+      }
+
+      .promo-copy {
+        left: 20px;
+        width: 58%;
+      }
+
+      .promo-copy strong {
+        margin-bottom: 12px;
+        font-size: 22px;
+      }
+
+      .promo-stack .promo-copy strong {
+        font-size: 15px;
+      }
+
+      .promo-eyebrow {
+        margin-bottom: 6px;
+        font-size: 11px;
+      }
+
+      .collection-banner img {
+        aspect-ratio: 2 / 1;
+      }
+
+      .collection-copy {
+        right: 18px;
+        width: 50%;
+      }
+
+      .collection-copy strong {
+        font-size: 22px;
+      }
+
+      .promo-body {
+        margin: 8px 0 10px;
+        font-size: 12px;
+        line-height: 1.45;
       }
 
       .testimonial,
@@ -1598,7 +1718,7 @@
           <div class="product-grid" id="products">
             <article class="product-card">
               <a class="product-media" href="#organic-cotton">
-                <img src="assets/product-wide-bodysuit.png" alt="Organic cotton bodysuit set with matching dotted hat" loading="lazy">
+                <img src="assets/product-wide-bodysuit.webp" alt="Organic cotton bodysuit set with matching dotted hat" loading="lazy">
               </a>
               <h3 class="product-name">Organic Cotton<br>Bodysuit Set</h3>
               <p class="product-price">$24.00</p>
@@ -1611,7 +1731,7 @@
 
             <article class="product-card">
               <a class="product-media" href="#ruffle-romper">
-                <img src="assets/product-wide-romper.png" alt="Ruffle sleeve romper in warm oatmeal" loading="lazy">
+                <img src="assets/product-wide-romper.webp" alt="Ruffle sleeve romper in warm oatmeal" loading="lazy">
               </a>
               <h3 class="product-name">Ruffle Sleeve<br>Romper</h3>
               <p class="product-price">$28.00</p>
@@ -1625,7 +1745,7 @@
 
             <article class="product-card">
               <a class="product-media" href="#knitted-cardigan">
-                <img src="assets/product-wide-cardigan.png" alt="Cream knitted cardigan with buttons" loading="lazy">
+                <img src="assets/product-wide-cardigan.webp" alt="Cream knitted cardigan with buttons" loading="lazy">
               </a>
               <h3 class="product-name">Knitted Cardigan</h3>
               <p class="product-price">$30.00</p>
@@ -1633,7 +1753,7 @@
 
             <article class="product-card">
               <a class="product-media" href="#striped-jumpsuit">
-                <img src="assets/product-wide-jumpsuit.png" alt="Striped baby jumpsuit with bonnet" loading="lazy">
+                <img src="assets/product-wide-jumpsuit.webp" alt="Striped baby jumpsuit with bonnet" loading="lazy">
               </a>
               <h3 class="product-name">Striped Baby<br>Jumpsuit</h3>
               <p class="product-price">$26.00</p>
@@ -1649,17 +1769,28 @@
 
         <section class="promo-grid" aria-label="LittleCuddle collections" data-reveal>
           <a class="promo-card tall" href="#cozy-layers">
-            <img src="assets/promo-cozy-wide.png" alt="Cozy Layers collection - For Every Little Moment">
-            <span class="visually-hidden">Cozy Layers. For Every Little Moment. Shop Now.</span>
+            <img src="assets/promo-cozy-wide.webp" alt="Baby wearing cozy ivory layers beside a wooden toy">
+            <span class="promo-copy">
+              <span class="promo-eyebrow">Cozy Layers</span>
+              <strong>For Every<br>Little Moment</strong>
+              <span class="text-link">Shop Now <svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+            </span>
           </a>
           <div class="promo-stack">
             <a class="promo-card" href="#basics">
-              <img src="assets/promo-basics-wide.png" alt="Everyday Basics - Soft. Simple. Essential.">
-              <span class="visually-hidden">Everyday Basics. Soft. Simple. Essential. Shop Basics.</span>
+              <img src="assets/promo-basics-wide.webp" alt="Folded ivory and oatmeal baby knit basics">
+              <span class="promo-copy">
+                <strong>Everyday Basics</strong>
+                <span class="promo-body">Soft. Simple. Essential.</span>
+                <span class="text-link">Shop Basics <svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+              </span>
             </a>
             <a class="promo-card" href="#accessories">
-              <img src="assets/promo-accessories-wide.png" alt="Perfect Finishing Accessories">
-              <span class="visually-hidden">Perfect Finishing Accessories. Shop Accessories.</span>
+              <img src="assets/promo-accessories-wide.webp" alt="Cozy baby accessories with knit hat and tiny booties">
+              <span class="promo-copy">
+                <strong>Perfect Finishing<br>Accessories</strong>
+                <span class="text-link">Shop Accessories <svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+              </span>
             </a>
           </div>
         </section>
@@ -1676,7 +1807,7 @@
             <article class="flash-card">
               <a class="flash-media" href="#organic-cotton">
                 <span class="badge">-25%</span>
-                <img src="assets/flash-wide-bodysuit.png" alt="Organic cotton bodysuit set on sale" loading="lazy">
+                <img src="assets/flash-wide-bodysuit.webp" alt="Organic cotton bodysuit set on sale" loading="lazy">
               </a>
               <h3>Organic Cotton Bodysuit Set</h3>
               <p>$24.00 <span class="old-price">$32.00</span></p>
@@ -1684,7 +1815,7 @@
             <article class="flash-card">
               <a class="flash-media" href="#ruffle-romper">
                 <span class="badge">-20%</span>
-                <img src="assets/flash-wide-romper.png" alt="Ruffle sleeve romper on sale" loading="lazy">
+                <img src="assets/flash-wide-romper.webp" alt="Ruffle sleeve romper on sale" loading="lazy">
               </a>
               <h3>Ruffle Sleeve Romper</h3>
               <p>$28.00 <span class="old-price">$36.00</span></p>
@@ -1692,7 +1823,7 @@
             <article class="flash-card">
               <a class="flash-media" href="#knitted-cardigan">
                 <span class="badge">-25%</span>
-                <img src="assets/flash-wide-cardigan.png" alt="Knitted cardigan on sale" loading="lazy">
+                <img src="assets/flash-wide-cardigan.webp" alt="Knitted cardigan on sale" loading="lazy">
               </a>
               <h3>Knitted Cardigan</h3>
               <p>$30.00 <span class="old-price">$40.00</span></p>
@@ -1700,7 +1831,7 @@
             <article class="flash-card">
               <a class="flash-media" href="#striped-jumpsuit">
                 <span class="badge">-24%</span>
-                <img src="assets/flash-wide-jumpsuit.png" alt="Striped baby jumpsuit on sale" loading="lazy">
+                <img src="assets/flash-wide-jumpsuit.webp" alt="Striped baby jumpsuit on sale" loading="lazy">
               </a>
               <h3>Striped Baby Jumpsuit</h3>
               <p>$26.00 <span class="old-price">$34.00</span></p>
@@ -1715,8 +1846,13 @@
         </section>
 
         <a class="collection-banner" id="collections" href="#everyday-edit" data-reveal>
-          <img src="assets/collection-wide.png" alt="New Collection - The Everyday Edit">
-          <span class="visually-hidden">New Collection. The Everyday Edit. Easy, breathable pieces for every day and every adventure. Shop Collection.</span>
+          <img src="assets/collection-wide.webp" alt="Baby in a breathable ivory romper and sun hat">
+          <span class="collection-copy">
+            <span class="promo-eyebrow">New Collection</span>
+            <strong>The Everyday Edit</strong>
+            <span class="promo-body">Easy, breathable pieces for every day and every adventure.</span>
+            <span class="text-link">Shop Collection <svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+          </span>
         </a>
 
         <div class="content-row" data-reveal>
@@ -1745,7 +1881,7 @@
             <div class="journal-grid">
               <article class="journal-card">
                 <a href="#newborn-checklist">
-                  <img src="assets/journal-newborn.png" alt="Baby wrapped in soft newborn essentials" loading="lazy">
+                  <img src="assets/journal-newborn.webp" alt="Newborn wrapped in soft ivory essentials" loading="lazy">
                 </a>
                 <div class="journal-meta">
                   <time class="journal-date" datetime="2026-05-20"><strong>20</strong>May</time>
@@ -1754,7 +1890,7 @@
               </article>
               <article class="journal-card">
                 <a href="#dress-baby">
-                  <img src="assets/journal-dress.png" alt="Baby in soft seasonal outfit" loading="lazy">
+                  <img src="assets/journal-dress.webp" alt="Baby dressed in soft layered seasonal clothing" loading="lazy">
                 </a>
                 <div class="journal-meta">
                   <time class="journal-date" datetime="2026-05-22"><strong>22</strong>May</time>
@@ -1763,7 +1899,7 @@
               </article>
               <article class="journal-card">
                 <a href="#baby-clothes-care">
-                  <img src="assets/journal-care.png" alt="Folded baby clothes and shoes" loading="lazy">
+                  <img src="assets/journal-care.webp" alt="Folded baby knitwear and clothing care accessories" loading="lazy">
                 </a>
                 <div class="journal-meta">
                   <time class="journal-date" datetime="2026-05-24"><strong>24</strong>May</time>
@@ -1772,7 +1908,7 @@
               </article>
               <article class="journal-card">
                 <a href="#sensitive-skin">
-                  <img src="assets/journal-fabric.png" alt="Soft baby cardigan fabric" loading="lazy">
+                  <img src="assets/journal-fabric.webp" alt="Soft organic cotton baby fabrics for sensitive skin" loading="lazy">
                 </a>
                 <div class="journal-meta">
                   <time class="journal-date" datetime="2026-05-26"><strong>26</strong>May</time>
